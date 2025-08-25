@@ -1,0 +1,14 @@
+.df-deploy
+.vscode
+__pycache__
+
+test_data
+test/
+
+*.parquet
+
+deployment_ensemble.py
+deployment_test.sh
+run_deployment.sh
+test*
+local_install.sh
