@@ -22,14 +22,34 @@ Use:
 
 ## Installation
 
-Install the required packages (editable installs recommended if developing locally):
+<!-- Install the required packages (editable installs recommended if developing locally): -->
 
-**NOTE** - Only tested using editable installs so far because unpublished local changes were required for 
-packaging and functionality.
+<!-- **NOTE** - Only tested using editable installs so far because unpublished local changes were required for 
+packaging and functionality. -->
+
+Clone this repo; and `DeepTune` and `df-analyze` repositories, if needed.
+```shell
+git clone https://github.com/johnkxl/df-deploy.git
+```
+**NOTE:** Currently, `DeepTune`'s `package` branch is required for `df-deploy`.
 
 ```shell
+git clone -b package https://github.com/moayadeldin/deeptune-beta.git
+git clone https://github.com/stfxecutables/df-analyze.git
+```
+
+`cd` into the `df-deploy` directory and create and activate a virtual environment
+
+```shell
+cd df-deploy
+python -m venv .df-deploy
+source .df-deploy/bin/activate
+```
+
+Installing `DeepTune` and `df-amalyze` as python packages should install all dependencies required for `df-deploy`.
+```shell
 pip install -e /path/to/df-analyze
-pip install -e /path/to/DeepTune   # Optional
+pip install -e /path/to/DeepTune
 ```
 
 
@@ -236,7 +256,7 @@ For **pure inference** (no target column is present), evaluation files are **not
 
 ## Notes on Data Splits and Deployment Strategy
 
-To ensure consistency between feature selection, hyperparameter optimization, and model ranking, it is recommended to deploy models trained on the **same dataset** used as input to `df-analyze`.
+To ensure consistency between feature selection, hyperparameter optimization, and model ranking, models created using `df-deploy` are only trained on the **same dataset** used as input to `df-analyze`.
 
 New data should be reserved for testing the generalisability of the deployed model(s). If performance on the new data degrades significantly, a new pipeline run should be initiated:
 
@@ -289,7 +309,7 @@ Instead, only the **`DeepTune` test split** should be embedded and used for down
   author = {John Kendall},
   title = {df-deploy},
   year = {2025},
-  url = {https://github.com/[repo-TBD]},
-  version = {0.0.1}
+  url = {https://github.com/df-deploy},
+  version = {1.0.0}
 }
 ```
