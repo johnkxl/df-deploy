@@ -309,7 +309,7 @@ Instead, only the **`DeepTune` test split** should be embedded and used for down
   author = {John Kendall},
   title = {df-deploy},
   year = {2025},
-  url = {https://github.com/df-deploy},
+  url = {https://github.com/johnkxl/df-deploy},
   version = {1.0.0}
 }
 ```
